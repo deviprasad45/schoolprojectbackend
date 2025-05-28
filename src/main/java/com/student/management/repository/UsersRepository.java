@@ -12,6 +12,6 @@ import com.student.management.domain.Users;
 @Repository
 public interface UsersRepository extends JpaRepository<Users, Long> {
 
-	Users findByUsernameAndPassword(String username, String password);
+	Users findByUserNameAndPassword(String username, String password);
 	
 }
