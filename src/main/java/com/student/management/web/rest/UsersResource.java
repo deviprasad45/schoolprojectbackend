@@ -208,7 +208,7 @@ public class UsersResource {
 				return StudentManagementResponseUtil.buildResponse(ApplicationConstants.RES_STATUS_ERROR,
 						ApplicationConstants.BAD_REQUEST, null);
 			}
-			result = usersService.save(usersDTO);
+			result = usersService.signinUsers(usersDTO);
 			data = new ArrayList<>();
 			data.add(result);
 		} catch (StudentManagementBusinessException e) {

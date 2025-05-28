@@ -27,7 +27,7 @@ public class Users extends Auditable<Long> implements Serializable {
     private String login;
 
     @Column(name = "username")
-    private String username;
+    private String userName;
 
     @Column(name = "password")
     private String password;
@@ -94,20 +94,15 @@ public class Users extends Auditable<Long> implements Serializable {
         this.login = login;
     }
 
-    public String getUsername() {
-        return this.username;
-    }
+    public String getUserName() {
+		return userName;
+	}
 
-    public Users username(String username) {
-        this.setUsername(username);
-        return this;
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
+	public String getPassword() {
         return this.password;
     }
 
@@ -237,7 +232,7 @@ public class Users extends Auditable<Long> implements Serializable {
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", login='" + getLogin() + "'" +
-            ", username='" + getUsername() + "'" +
+            ", username='" + getUserName() + "'" +
             ", password='" + getPassword() + "'" +
             ", email='" + getEmail() + "'" +
             ", mobileno='" + getMobileno() + "'" +

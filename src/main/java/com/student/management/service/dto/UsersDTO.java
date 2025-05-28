@@ -16,7 +16,7 @@ public class UsersDTO extends AuditableDTO<Long> implements Serializable {
 
     private String login;
 
-    private String username;
+    private String userName;
 
     private String password;
 
@@ -58,15 +58,15 @@ public class UsersDTO extends AuditableDTO<Long> implements Serializable {
         this.login = login;
     }
 
-    public String getUsername() {
-        return username;
-    }
+    public String getUserName() {
+		return userName;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    public String getPassword() {
+	public String getPassword() {
         return password;
     }
 
@@ -158,7 +158,7 @@ public class UsersDTO extends AuditableDTO<Long> implements Serializable {
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", login='" + getLogin() + "'" +
-            ", username='" + getUsername() + "'" +
+            ", username='" + getUserName() + "'" +
             ", password='" + getPassword() + "'" +
             ", email='" + getEmail() + "'" +
             ", mobileno='" + getMobileno() + "'" +

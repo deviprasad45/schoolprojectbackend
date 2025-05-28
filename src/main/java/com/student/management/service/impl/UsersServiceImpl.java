@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.student.management.domain.Users;
+import com.student.management.exception.StudentManagementBusinessException;
 import com.student.management.repository.UsersRepository;
 import com.student.management.service.UsersService;
 import com.student.management.service.dto.UsersDTO;
@@ -63,12 +64,15 @@ public class UsersServiceImpl implements UsersService {
     }
     
     @Override
-    public UsersDTO signinUsers(UsersDTO usersDTO) {
+    public UsersDTO signinUsers(UsersDTO usersDTO) throws StudentManagementBusinessException {
         log.debug("Request to save Users : {}", usersDTO);
         Users users = usersMapper.toEntity(usersDTO);
       //  if()
-        users = usersRepository.findByUsernameAndPassword(users.getUsername(),users.getPassword());
+        users = usersRepository.findByUserNameAndPassword(users.getUserName(),users.getPassword());
         
-        return usersMapper.toDto(users);
+        if(null != users)
+        	return usersMapper.toDto(users);
+        else
+        	throw new StudentManagementBusinessException(" Username or password is incorrect ");
     }
 }
